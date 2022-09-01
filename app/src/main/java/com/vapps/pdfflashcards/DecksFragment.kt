@@ -5,18 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vapps.pdfflashcards.databinding.FragmentDecksBinding
 
 //This fragment is the main view of this app
 //All the created decks will be displayed here
 class DecksFragment : Fragment() {
-
-
+    private var _binding: FragmentDecksBinding? = null
+    val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_decks, container, false)
+        _binding = FragmentDecksBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        binding.newDeckButton.setOnClickListener {
+            val modalBottomSheet = NewDeckBottomSheetFragment()
+            modalBottomSheet.show(parentFragmentManager, NewDeckBottomSheetFragment.TAG)
+        }
+
+        return view
     }
 
 }
