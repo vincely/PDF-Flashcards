@@ -20,7 +20,7 @@ class DecksFragment : Fragment() {
         _binding = FragmentDecksBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.newDeckButton.setOnClickListener {
+        binding.addDeckFab.setOnClickListener {
             val modalBottomSheet = NewDeckBottomSheetFragment()
             modalBottomSheet.show(parentFragmentManager, NewDeckBottomSheetFragment.TAG)
         }

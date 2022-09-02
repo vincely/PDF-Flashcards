@@ -1,27 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/drawer_layout">
+
+<androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:orientation="vertical">
 
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/nav_host_fragment"
-    android:layout_height="0dp"
-    android:layout_width="match_parent"
-    android:name="androidx.navigation.fragment.NavHostFragment"
-    app:defaultNavHost="true"
-    app:navGraph="@navigation/nav_graph"
-    android:layout_weight="1"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        android:layout_weight="1"/>
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/bottom_navigation"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:menu="@menu/bottom_navigation_menu"
-    app:labelVisibilityMode="unlabeled"
-    style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
 
-</LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/navigation_drawer"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
