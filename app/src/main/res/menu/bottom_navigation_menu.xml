@@ -8,6 +8,12 @@
         android:title="@string/bot_nav_item_decks" />
 
     <item
+        android:id="@+id/statsFragment"
+        android:enabled="true"
+        android:icon="@drawable/icon_stats"
+        android:title="@string/bot_nav_item_statistics" />
+
+    <item
         android:id="@+id/settingsFragment"
         android:enabled="true"
         android:icon="@drawable/settings_icon"

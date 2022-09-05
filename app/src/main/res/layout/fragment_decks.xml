@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DecksFragment">
+    tools:context=".DecksFragment"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="All the decks will be here"/>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/new_deck_button"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/decks_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_decks_fab"
+        android:layout_gravity="bottom|end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Deck"/>
+        android:layout_margin="8dp"
+        app:srcCompat="@drawable/icon_add_deck"
+        android:importantForAccessibility="no" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

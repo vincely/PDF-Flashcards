@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.vapps.pdfflashcards.adapter.CardsAdapter
 import com.vapps.pdfflashcards.databinding.FragmentDecksBinding
 
 //This fragment is the main view of this app
@@ -20,10 +21,12 @@ class DecksFragment : Fragment() {
         _binding = FragmentDecksBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.newDeckButton.setOnClickListener {
+        binding.addDecksFab.setOnClickListener {
             val modalBottomSheet = NewDeckBottomSheetFragment()
             modalBottomSheet.show(parentFragmentManager, NewDeckBottomSheetFragment.TAG)
         }
+
+        binding.decksRecyclerView.adapter = CardsAdapter()
 
         return view
     }

@@ -15,4 +15,9 @@
         android:name="com.vapps.pdfflashcards.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/statsFragment"
+        android:name="com.vapps.pdfflashcards.StatsFragment"
+        android:label="fragment_stats"
+        tools:layout="@layout/fragment_stats" />
 </navigation>
