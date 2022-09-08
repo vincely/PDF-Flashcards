@@ -5,4 +5,8 @@
     <string name="bot_nav_item_decks">Decks</string>
     <string name="bot_nav_item_settings">Settings</string>
     <string name="bot_nav_item_statistics">Statistics</string>
+    <string name="new_deck_dialog_title">Enter title of new deck</string>
+    <string name="add_deck">Create Deck</string>
+    <string name="cancel_add_deck">Cancel</string>
+    <string name="enter_deck_name_hint">Enter deck name</string>
 </resources>

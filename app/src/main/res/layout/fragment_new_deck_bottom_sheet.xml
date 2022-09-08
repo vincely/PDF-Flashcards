@@ -6,8 +6,8 @@
     android:orientation="vertical"
     tools:context=".NewDeckBottomSheetFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/create_deck_item"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:gravity="center_vertical"
