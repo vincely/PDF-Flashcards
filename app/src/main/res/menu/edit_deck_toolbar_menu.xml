@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/edit_deck_action_close"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Close"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/change_title_item"
+        android:title="Rename Deck"
+        app:showAsAction="never"/>
+</menu>

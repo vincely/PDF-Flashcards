@@ -9,4 +9,5 @@
     <string name="add_deck">Create Deck</string>
     <string name="cancel_add_deck">Cancel</string>
     <string name="enter_deck_name_hint">Enter deck name</string>
+    <string name="edit_deck_title">%1$s</string>
 </resources>

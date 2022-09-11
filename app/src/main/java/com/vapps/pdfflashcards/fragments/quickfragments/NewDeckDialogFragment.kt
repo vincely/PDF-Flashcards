@@ -1,16 +1,16 @@
-package com.vapps.pdfflashcards
+package com.vapps.pdfflashcards.fragments.quickfragments
 
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentTransaction
+import com.vapps.pdfflashcards.MainActivity
+import com.vapps.pdfflashcards.R
 import com.vapps.pdfflashcards.databinding.FragmentNewDeckDialogBinding
+import com.vapps.pdfflashcards.fragments.mainfragments.EditDeckFragment
 import java.lang.IllegalStateException
 
 
@@ -33,15 +33,13 @@ class NewDeckDialogFragment : DialogFragment() {
             builder.setView(binding.root)
                 .setPositiveButton(R.string.add_deck, DialogInterface.OnClickListener {
                         dialog, id ->
-                    Toast.makeText(context, "create deck", Toast.LENGTH_SHORT).show()
+                    //(activity as MainActivity).showEditDeck()
+                    showEditDeck()
                 })
                 .setNegativeButton(R.string.cancel_add_deck, DialogInterface.OnClickListener {
                     dialog, id ->
                     Toast.makeText(context, "cancelled", Toast.LENGTH_SHORT).show()
                 })
-
-
-
 
             // 2. Chain together various setter methods to set the dialog characteristics
             builder.setTitle(R.string.new_deck_dialog_title)
@@ -50,8 +48,19 @@ class NewDeckDialogFragment : DialogFragment() {
 
         } ?: throw IllegalStateException("Activity cannot be null")
 
-
-
     }
+
+    fun showEditDeck() {
+        val editDeckFragment = EditDeckFragment()
+        val fragmentManager = requireActivity().supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction
+            .add(android.R.id.content, editDeckFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+
 
 }

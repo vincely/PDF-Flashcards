@@ -2,9 +2,11 @@ package com.vapps.pdfflashcards
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.vapps.pdfflashcards.databinding.ActivityMainBinding
+import com.vapps.pdfflashcards.fragments.mainfragments.EditDeckFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,4 +20,17 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         binding.bottomNavigation.setupWithNavController(navController)
     }
+
+    fun showEditDeck() {
+        val editDeckFragment = EditDeckFragment()
+        val fragmentManager = supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        transaction
+            .add(android.R.id.content, editDeckFragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+
 }

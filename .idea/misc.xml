@@ -6,10 +6,14 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_decks.xml" value="0.19479166666666667" />
+        <entry key="app/src/main/res/layout/fragment_edit_deck.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.32083333333333336" />
         <entry key="app/src/main/res/layout/fragment_new_deck_bottom_sheet.xml" value="0.1911231884057971" />
         <entry key="app/src/main/res/layout/fragment_new_deck_dialog.xml" value="0.37604166666666666" />
         <entry key="app/src/main/res/layout/fragment_stats.xml" value="0.26358695652173914" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/menu/edit_deck_toolbar_items.xml" value="0.5625" />
+        <entry key="app/src/main/res/menu/edit_deck_toolbar_menu.xml" value="0.5625" />
         <entry key="app/src/main/res/menu/navigation_drawer.xml" value="0.37604166666666666" />
       </map>
     </option>

@@ -1,4 +1,4 @@
-package com.vapps.pdfflashcards
+package com.vapps.pdfflashcards.fragments.mainfragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.vapps.pdfflashcards.adapter.CardsAdapter
 import com.vapps.pdfflashcards.databinding.FragmentDecksBinding
+import com.vapps.pdfflashcards.fragments.quickfragments.NewDeckBottomSheetFragment
 
 //This fragment is the main view of this app
 //All the created decks will be displayed here
@@ -30,5 +31,7 @@ class DecksFragment : Fragment() {
 
         return view
     }
+
+
 
 }

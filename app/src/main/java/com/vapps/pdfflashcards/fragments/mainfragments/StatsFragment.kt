@@ -1,4 +1,4 @@
-package com.vapps.pdfflashcards
+package com.vapps.pdfflashcards.fragments.mainfragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

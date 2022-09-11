@@ -7,17 +7,21 @@
 
     <fragment
         android:id="@+id/decksFragment"
-        android:name="com.vapps.pdfflashcards.DecksFragment"
+        android:name="com.vapps.pdfflashcards.fragments.mainfragments.DecksFragment"
         android:label="fragment_decks"
         tools:layout="@layout/fragment_decks" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.vapps.pdfflashcards.SettingsFragment"
+        android:name="com.vapps.pdfflashcards.fragments.mainfragments.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/statsFragment"
-        android:name="com.vapps.pdfflashcards.StatsFragment"
+        android:name="com.vapps.pdfflashcards.fragments.mainfragments.StatsFragment"
         android:label="fragment_stats"
         tools:layout="@layout/fragment_stats" />
+    <dialog
+        android:id="@+id/editDeckFragment"
+        android:name="com.vapps.pdfflashcards.fragments.mainfragments.EditDeckFragment"
+        android:label="EditDeckFragment" />
 </navigation>
