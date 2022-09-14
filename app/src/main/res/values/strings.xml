@@ -10,4 +10,11 @@
     <string name="cancel_add_deck">Cancel</string>
     <string name="enter_deck_name_hint">Enter deck name</string>
     <string name="edit_deck_title">%1$s</string>
+    <string name="bottom_sheet_item_new">Create new deck</string>
+    <string name="bottom_sheet_item_edit">Edit existing deck</string>
+
+    <string-array name="bot_sheet_items">
+        <item>@string/bottom_sheet_item_new</item>
+        <item>@string/bottom_sheet_item_edit</item>
+    </string-array>
 </resources>

@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.vapps.pdfflashcards.R
 import com.vapps.pdfflashcards.data.Card
 import com.vapps.pdfflashcards.data.Deck
-import com.vapps.pdfflashcards.data.TestData
+import com.vapps.pdfflashcards.viewmodel.DecksViewmodel
 
-class CardsAdapter : RecyclerView.Adapter<CardsAdapter.CardsViewHolder>() {
+class CardsAdapter(decks: List<Deck>) : RecyclerView.Adapter<CardsAdapter.CardsViewHolder>() {
 
-    val data = TestData.data
+    val data = decks
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsViewHolder = CardsViewHolder.inflateFrom(parent)

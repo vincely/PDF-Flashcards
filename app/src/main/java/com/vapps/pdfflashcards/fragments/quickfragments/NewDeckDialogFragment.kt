@@ -3,6 +3,7 @@ package com.vapps.pdfflashcards.fragments.quickfragments
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -19,7 +20,9 @@ class NewDeckDialogFragment : DialogFragment() {
     private var _binding: FragmentNewDeckDialogBinding? = null
     val binding get() = _binding!!
 
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        isCancelable = false
 
         return activity?.let {
 
@@ -31,13 +34,17 @@ class NewDeckDialogFragment : DialogFragment() {
 
             _binding = FragmentNewDeckDialogBinding.inflate(inflater, null, false)
             builder.setView(binding.root)
-                .setPositiveButton(R.string.add_deck, DialogInterface.OnClickListener {
-                        dialog, id ->
-                    //(activity as MainActivity).showEditDeck()
-                    showEditDeck()
-                })
+                .setPositiveButton(R.string.add_deck)
+                { _, _ ->
+/*                    val textInput = binding.deckInput.editText
+                    if (textInput?.text.toString() == "") {
+                        Toast.makeText(context, "Name required", Toast.LENGTH_SHORT).show()
+                    } else {
+                        showEditDeck()
+                    }*/
+                }
                 .setNegativeButton(R.string.cancel_add_deck, DialogInterface.OnClickListener {
-                    dialog, id ->
+                    _, _ ->
                     Toast.makeText(context, "cancelled", Toast.LENGTH_SHORT).show()
                 })
 
@@ -48,6 +55,27 @@ class NewDeckDialogFragment : DialogFragment() {
 
         } ?: throw IllegalStateException("Activity cannot be null")
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val mDialog = dialog as AlertDialog?
+
+        mDialog?.let {
+            it.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                var wantToClose = false
+                val textInput = binding.deckInput.editText
+                if (textInput?.text.toString() == "") {
+                    Toast.makeText(context, "Name required", Toast.LENGTH_SHORT).show()
+                } else {
+                    wantToClose = true
+                    showEditDeck()
+                }
+                if(wantToClose) {
+                    dismiss()
+                }
+            }
+        }
     }
 
     fun showEditDeck() {

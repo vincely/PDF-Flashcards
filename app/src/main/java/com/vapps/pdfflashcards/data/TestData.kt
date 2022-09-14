@@ -1,6 +1,7 @@
 package com.vapps.pdfflashcards.data
 
 // Just testdata to play around before deciding the architecture of database
+/*
 object TestData {
     val data = listOf<Deck>(
         Deck(1, "Deck1", listOf(
@@ -28,4 +29,4 @@ object TestData {
             Card(4, "Deck4Front4", "Deck4Back4")
         ))
     )
-}
+}*/

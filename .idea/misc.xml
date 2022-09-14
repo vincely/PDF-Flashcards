@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/bottom_sheet_items.xml" value="0.4699603271484375" />
         <entry key="app/src/main/res/layout/card_item.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_decks.xml" value="0.19479166666666667" />
         <entry key="app/src/main/res/layout/fragment_edit_deck.xml" value="0.33" />
