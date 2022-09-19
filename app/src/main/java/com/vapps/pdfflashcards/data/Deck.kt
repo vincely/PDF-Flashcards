@@ -1,6 +1,13 @@
 package com.vapps.pdfflashcards.data
 
-data class Deck(val deckId: Long, var deckName: String){
-    var cardList = mutableListOf<Card>()
-    val deckSize get() = cardList.size
-}
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "deck_table")
+data class Deck(
+    @PrimaryKey(autoGenerate = true)
+    var deckId: Long = 0L,
+    @ColumnInfo(name = "deck_name")
+    var deckName: String = ""
+)

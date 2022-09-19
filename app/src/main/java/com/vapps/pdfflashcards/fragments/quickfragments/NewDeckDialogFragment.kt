@@ -1,24 +1,25 @@
 package com.vapps.pdfflashcards.fragments.quickfragments
 
 import android.app.Dialog
-import android.content.DialogInterface
+import android.content.Context
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentTransaction
-import com.vapps.pdfflashcards.MainActivity
 import com.vapps.pdfflashcards.R
 import com.vapps.pdfflashcards.databinding.FragmentNewDeckDialogBinding
 import com.vapps.pdfflashcards.fragments.mainfragments.EditDeckFragment
 import java.lang.IllegalStateException
+import kotlin.ClassCastException
 
 
 class NewDeckDialogFragment : DialogFragment() {
 
     private var _binding: FragmentNewDeckDialogBinding? = null
     val binding get() = _binding!!
+    lateinit var listener: NewDeckDialogListener
+    var title = ""
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -34,19 +35,8 @@ class NewDeckDialogFragment : DialogFragment() {
 
             _binding = FragmentNewDeckDialogBinding.inflate(inflater, null, false)
             builder.setView(binding.root)
-                .setPositiveButton(R.string.add_deck)
-                { _, _ ->
-/*                    val textInput = binding.deckInput.editText
-                    if (textInput?.text.toString() == "") {
-                        Toast.makeText(context, "Name required", Toast.LENGTH_SHORT).show()
-                    } else {
-                        showEditDeck()
-                    }*/
-                }
-                .setNegativeButton(R.string.cancel_add_deck, DialogInterface.OnClickListener {
-                    _, _ ->
-                    Toast.makeText(context, "cancelled", Toast.LENGTH_SHORT).show()
-                })
+                .setPositiveButton(R.string.add_deck, null)
+                .setNegativeButton(R.string.cancel_add_deck, null)
 
             // 2. Chain together various setter methods to set the dialog characteristics
             builder.setTitle(R.string.new_deck_dialog_title)
@@ -57,26 +47,35 @@ class NewDeckDialogFragment : DialogFragment() {
 
     }
 
+    // changing the dialog after instantiation, because custom functionality for the buttons
+    // were needed
     override fun onResume() {
         super.onResume()
+
+
+        //getting the current dialog in the fragment
         val mDialog = dialog as AlertDialog?
 
-        mDialog?.let {
+        //overriding the clicklistener of the positive button, so it would not dismiss automatically
+        //after pressing
+        mDialog?.let { it ->
             it.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 var wantToClose = false
-                val textInput = binding.deckInput.editText
-                if (textInput?.text.toString() == "") {
+
+                title = binding.deckInput.editText?.text.toString()
+                if (title == "") {
                     Toast.makeText(context, "Name required", Toast.LENGTH_SHORT).show()
                 } else {
                     wantToClose = true
-                    showEditDeck()
+                    listener.onDialogPositiveClick(this)
                 }
-                if(wantToClose) {
+                if (wantToClose) {
                     dismiss()
                 }
             }
         }
     }
+
 
     fun showEditDeck() {
         val editDeckFragment = EditDeckFragment()
@@ -89,6 +88,18 @@ class NewDeckDialogFragment : DialogFragment() {
             .commit()
     }
 
+    interface NewDeckDialogListener {
+        fun onDialogPositiveClick( dialog: NewDeckDialogFragment)
+    }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as NewDeckDialogListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException(("$context must implement NewDeckDialogListener"))
+        }
+
+    }
 
 }

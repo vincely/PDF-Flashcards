@@ -17,7 +17,8 @@
     android:orientation="vertical"
     tools:context=".fragments.mainfragments.DecksFragment"
     android:paddingRight="16dp"
-    android:paddingLeft="16dp">
+    android:paddingLeft="16dp"
+    android:id="@+id/deck_fragment_root">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

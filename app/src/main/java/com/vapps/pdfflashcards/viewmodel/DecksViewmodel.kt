@@ -3,26 +3,23 @@ package com.vapps.pdfflashcards.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.vapps.pdfflashcards.data.Deck
+import com.vapps.pdfflashcards.data.DeckDao
+import com.vapps.pdfflashcards.data.DeckWithCards
+import kotlinx.coroutines.launch
 
-class DecksViewmodel : ViewModel() {
+class DecksViewmodel(val dao: DeckDao) : ViewModel() {
 
-    var _decks = MutableLiveData<List<Deck>>()
-    val decks: LiveData<List<Deck>> get() = _decks
-    val deckIds: MutableList<Long> = mutableListOf()
+    var newDeckName = ""
+    var decks = dao.getDeckWithCards()
 
-    // Temporarily working with object in ViewModel
-    // Will be replaced with database connection later on
-    fun createDeck(name: String){
-        val tempList = mutableListOf<Deck>()
-        decks.value?.let {
-            tempList.addAll(it)
+    fun addDeck() {
+        viewModelScope.launch {
+            val deck = Deck()
+            deck.deckName = newDeckName
+            dao.insertDeck(deck)
+
         }
-        if(deckIds.isEmpty()) deckIds.add(0L) else deckIds.add(deckIds.size.toLong())
-        val id = deckIds.last()
-        val newDeck = Deck(id, name)
-        tempList.add(newDeck)
-        _decks.value = tempList
     }
-
 }
