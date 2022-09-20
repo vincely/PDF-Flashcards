@@ -13,6 +13,8 @@
     <string name="bottom_sheet_item_new">Create new deck</string>
     <string name="bottom_sheet_item_edit">Edit existing deck</string>
     <string name="deck_item_id">Deck ID: %1$s</string>
+    <string name="dialog_title">Enter title of new deck</string>
+    <string name="dialog_hint">Enter deck name</string>
 
     <string-array name="bot_sheet_items">
         <item>@string/bottom_sheet_item_new</item>
